@@ -8,7 +8,9 @@ class Dropdown extends Component {
   }
 
   componentDidMount() {
-    $(this.refs[this.idx]).dropdown();
+    const options = this.props.options || {};
+
+    $(this.refs[this.idx]).dropdown(options);
   }
 
   render() {
@@ -43,6 +45,10 @@ Dropdown.propTypes = {
    */
   trigger: PropTypes.node.isRequired,
   children: PropTypes.node,
+  /**
+   * Options hash for the dropdown
+   */
+  options: PropTypes.obj,
   /**
    * 	If true, the dropdown will show over the activator. Default: false
    */

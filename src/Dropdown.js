@@ -9,8 +9,7 @@ class Dropdown extends Component {
 
   componentDidMount() {
     const options = this.props.options || {};
-
-    $(this.refs[this.idx]).dropdown(options);
+    $(this._trigger).dropdown(options);
   }
 
   render() {
@@ -30,7 +29,7 @@ class Dropdown extends Component {
   renderTrigger() {
     return React.cloneElement(
       this.props.trigger, {
-        ref: this.idx,
+        ref: (t) => this._trigger = t,
         className: 'dropdown-button',
         'data-beloworigin': true,
         'data-activates': this.idx

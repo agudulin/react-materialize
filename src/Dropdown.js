@@ -18,7 +18,7 @@ class Dropdown extends Component {
     this.idx = 'dropdown_' + idgen();
 
     return (
-      <span props>
+      <span {...props}>
         { this.renderTrigger() }
         <ul className='dropdown-content' id={ this.idx }>
           { children }
